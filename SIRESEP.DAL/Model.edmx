@@ -1,0 +1,2035 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BD_SIRESEPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="aplicaciones">
+          <Key>
+            <PropertyRef Name="idAplicacion" />
+          </Key>
+          <Property Name="idAplicacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idConcurso" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="idCarrera" />
+          </Key>
+          <Property Name="idCarrera" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="carrera" Type="varchar" MaxLength="15" />
+        </EntityType>
+        <EntityType Name="Certificaciones">
+          <Key>
+            <PropertyRef Name="idCertificacion" />
+          </Key>
+          <Property Name="idCertificacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre" Type="varchar" MaxLength="100" />
+          <Property Name="ano" Type="date" />
+        </EntityType>
+        <EntityType Name="certificaciones_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idCertificacionProfesional" />
+          </Key>
+          <Property Name="idCertificacionProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idCertificacion" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="estado" Type="varchar" MaxLength="10" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="FechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="habilidades_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idHabilidadProfesional" />
+          </Key>
+          <Property Name="idHabilidadProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idHabilidad" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoAdicional">
+          <Key>
+            <PropertyRef Name="idInfoAdicional" />
+          </Key>
+          <Property Name="idInfoAdicional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdioma" Type="int" />
+          <Property Name="nivelIdioma" Type="varchar" MaxLength="12" />
+          <Property Name="idLicenciaConducir" Type="int" />
+        </EntityType>
+        <EntityType Name="infoAdicional_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idInfoAdicionalProfesional" />
+          </Key>
+          <Property Name="idInfoAdicionalProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idInfoAdicional" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoEstudios">
+          <Key>
+            <PropertyRef Name="idEstudios" />
+          </Key>
+          <Property Name="idEstudios" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idGradoEstudio" Type="int" />
+          <Property Name="idInstitucion" Type="int" />
+          <Property Name="idCarrera" Type="int" />
+        </EntityType>
+        <EntityType Name="infoEstudios_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idEstudiosProfesional" />
+          </Key>
+          <Property Name="idEstudiosProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idEstudios" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoGenero">
+          <Key>
+            <PropertyRef Name="idGenero" />
+          </Key>
+          <Property Name="idGenero" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="genero" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="InfoGradoEstudio">
+          <Key>
+            <PropertyRef Name="idGradoEstudio" />
+          </Key>
+          <Property Name="idGradoEstudio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="descripcion" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="InfoHabilidad">
+          <Key>
+            <PropertyRef Name="idHabilidad" />
+          </Key>
+          <Property Name="idHabilidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="habilidad" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InfoIdioma">
+          <Key>
+            <PropertyRef Name="idIdioma" />
+          </Key>
+          <Property Name="idIdioma" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idioma" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InfoInstitucion">
+          <Key>
+            <PropertyRef Name="idInstitucion" />
+          </Key>
+          <Property Name="idInstitucion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreInstitucion" Type="varchar" MaxLength="30" />
+          <Property Name="ano" Type="date" />
+        </EntityType>
+        <EntityType Name="InfoLaboral">
+          <Key>
+            <PropertyRef Name="idInfoLaboral" />
+          </Key>
+          <Property Name="idInfoLaboral" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="profesion" Type="varchar" MaxLength="25" />
+          <Property Name="tiempoExperiencia" Type="int" />
+        </EntityType>
+        <EntityType Name="infoLaboral_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idInfoLaboralProfesional" />
+          </Key>
+          <Property Name="idInfoLaboralProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idInfoLaboral" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+        </EntityType>
+        <EntityType Name="InfoLicenciaConducir">
+          <Key>
+            <PropertyRef Name="idLicenciaConducir" />
+          </Key>
+          <Property Name="idLicenciaConducir" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="licencia" Type="varchar" MaxLength="8" />
+        </EntityType>
+        <EntityType Name="InfoNacionalidad">
+          <Key>
+            <PropertyRef Name="idNacionalidad" />
+          </Key>
+          <Property Name="idNacionalidad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nacionalidad" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InfoPuesto">
+          <Key>
+            <PropertyRef Name="idPuesto" />
+          </Key>
+          <Property Name="idPuesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="puesto" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="InfoRequisitos">
+          <Key>
+            <PropertyRef Name="idInfoRequisitos" />
+          </Key>
+          <Property Name="idInfoRequisitos" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idIdioma" Type="int" />
+          <Property Name="idGradoEstudio" Type="int" />
+          <Property Name="idHabilidad" Type="int" />
+          <Property Name="idCarrera" Type="int" />
+        </EntityType>
+        <EntityType Name="PerfilDelConcurso">
+          <Key>
+            <PropertyRef Name="idConcurso" />
+          </Key>
+          <Property Name="idConcurso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idPuesto" Type="int" />
+          <Property Name="idInfoRequisitos" Type="int" />
+          <Property Name="idEstado" Type="int" />
+          <Property Name="codConcurso" Type="varchar" MaxLength="50" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="fechaCierre" Type="date" />
+          <Property Name="descripcionConcurso" Type="varchar" MaxLength="150" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="fechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="PerfilPersona">
+          <Key>
+            <PropertyRef Name="idPerfilProfesional" />
+          </Key>
+          <Property Name="idPerfilProfesional" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="nombre" Type="varchar" MaxLength="15" />
+          <Property Name="apellidos" Type="varchar" MaxLength="30" />
+          <Property Name="fechaNacimiento" Type="date" />
+          <Property Name="telefono" Type="int" />
+          <Property Name="direccion" Type="varchar" MaxLength="100" />
+          <Property Name="idNacionalidad" Type="int" />
+          <Property Name="idGenero" Type="int" />
+          <Property Name="idEstado" Type="int" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="FechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="perfilProfesional_PerfilConcurso">
+          <Key>
+            <PropertyRef Name="idMatch" />
+          </Key>
+          <Property Name="idMatch" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idConcurso" Type="int" />
+          <Property Name="idPerfilProfesional" Type="int" />
+          <Property Name="porcentajeMatch" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="fechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombreRol" Type="varchar" MaxLength="20" />
+          <Property Name="idEstado" Type="int" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="fechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="Rol_Usuario">
+          <Key>
+            <PropertyRef Name="idRolUsuario" />
+          </Key>
+          <Property Name="idRolUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idUsuario" Type="int" />
+          <Property Name="idRol" Type="int" />
+          <Property Name="usuarioCrea" Type="varchar" MaxLength="30" />
+          <Property Name="fechaCreacion" Type="date" />
+          <Property Name="usuarioModifica" Type="varchar" MaxLength="30" />
+          <Property Name="fechaModifica" Type="date" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="correoElectronico" Type="varchar" MaxLength="50" />
+          <Property Name="cedula" Type="varchar" MaxLength="30" />
+          <Property Name="contrasena" Type="varchar" MaxLength="30" />
+          <Property Name="fechaRegistro" Type="datetime" />
+          <Property Name="idRol" Type="int" />
+        </EntityType>
+        <Association Name="FK__aplicacio__idCon__70DDC3D8">
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="0..1" />
+          <End Role="aplicaciones" Type="Self.aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilDelConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Principal>
+            <Dependent Role="aplicaciones">
+              <PropertyRef Name="idConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aplicacio__idPer__71D1E811">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="aplicaciones" Type="Self.aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="aplicaciones">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__certifica__idCer__787EE5A0">
+          <End Role="Certificaciones" Type="Self.Certificaciones" Multiplicity="0..1" />
+          <End Role="certificaciones_perfilProfesional" Type="Self.certificaciones_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificaciones">
+              <PropertyRef Name="idCertificacion" />
+            </Principal>
+            <Dependent Role="certificaciones_perfilProfesional">
+              <PropertyRef Name="idCertificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__certifica__idPer__797309D9">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="certificaciones_perfilProfesional" Type="Self.certificaciones_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="certificaciones_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__habilidad__idHab__00200768">
+          <End Role="InfoHabilidad" Type="Self.InfoHabilidad" Multiplicity="0..1" />
+          <End Role="habilidades_perfilProfesional" Type="Self.habilidades_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoHabilidad">
+              <PropertyRef Name="idHabilidad" />
+            </Principal>
+            <Dependent Role="habilidades_perfilProfesional">
+              <PropertyRef Name="idHabilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__habilidad__idPer__01142BA1">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="habilidades_perfilProfesional" Type="Self.habilidades_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="habilidades_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoAdici__idIdi__59063A47">
+          <End Role="InfoIdioma" Type="Self.InfoIdioma" Multiplicity="0..1" />
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoIdioma">
+              <PropertyRef Name="idIdioma" />
+            </Principal>
+            <Dependent Role="InfoAdicional">
+              <PropertyRef Name="idIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoAdici__idInf__03F0984C">
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="0..1" />
+          <End Role="infoAdicional_perfilProfesional" Type="Self.infoAdicional_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoAdicional">
+              <PropertyRef Name="idInfoAdicional" />
+            </Principal>
+            <Dependent Role="infoAdicional_perfilProfesional">
+              <PropertyRef Name="idInfoAdicional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoAdici__idLic__59FA5E80">
+          <End Role="InfoLicenciaConducir" Type="Self.InfoLicenciaConducir" Multiplicity="0..1" />
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoLicenciaConducir">
+              <PropertyRef Name="idLicenciaConducir" />
+            </Principal>
+            <Dependent Role="InfoAdicional">
+              <PropertyRef Name="idLicenciaConducir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoAdici__idPer__04E4BC85">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoAdicional_perfilProfesional" Type="Self.infoAdicional_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoAdicional_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idCar__4CA06362">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="idCarrera" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoEstud__idEst__7C4F7684">
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="0..1" />
+          <End Role="infoEstudios_perfilProfesional" Type="Self.infoEstudios_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoEstudios">
+              <PropertyRef Name="idEstudios" />
+            </Principal>
+            <Dependent Role="infoEstudios_perfilProfesional">
+              <PropertyRef Name="idEstudios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idGra__4AB81AF0">
+          <End Role="InfoGradoEstudio" Type="Self.InfoGradoEstudio" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGradoEstudio">
+              <PropertyRef Name="idGradoEstudio" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idGradoEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idIns__4BAC3F29">
+          <End Role="InfoInstitucion" Type="Self.InfoInstitucion" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoInstitucion">
+              <PropertyRef Name="idInstitucion" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoEstud__idPer__7D439ABD">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoEstudios_perfilProfesional" Type="Self.infoEstudios_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoEstudios_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoLabor__idInf__07C12930">
+          <End Role="InfoLaboral" Type="Self.InfoLaboral" Multiplicity="0..1" />
+          <End Role="infoLaboral_perfilProfesional" Type="Self.infoLaboral_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoLaboral">
+              <PropertyRef Name="idInfoLaboral" />
+            </Principal>
+            <Dependent Role="infoLaboral_perfilProfesional">
+              <PropertyRef Name="idInfoLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoLabor__idPer__08B54D69">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoLaboral_perfilProfesional" Type="Self.infoLaboral_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoLaboral_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idCar__693CA210">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="idCarrera" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idGra__6754599E">
+          <End Role="InfoGradoEstudio" Type="Self.InfoGradoEstudio" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGradoEstudio">
+              <PropertyRef Name="idGradoEstudio" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idGradoEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idHab__68487DD7">
+          <End Role="InfoHabilidad" Type="Self.InfoHabilidad" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoHabilidad">
+              <PropertyRef Name="idHabilidad" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idHabilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idIdi__66603565">
+          <End Role="InfoIdioma" Type="Self.InfoIdioma" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoIdioma">
+              <PropertyRef Name="idIdioma" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idEst__6E01572D">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idInf__6D0D32F4">
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoRequisitos">
+              <PropertyRef Name="idInfoRequisitos" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idInfoRequisitos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idPue__6C190EBB">
+          <End Role="InfoPuesto" Type="Self.InfoPuesto" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoPuesto">
+              <PropertyRef Name="idPuesto" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idEst__619B8048">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idGen__60A75C0F">
+          <End Role="InfoGenero" Type="Self.InfoGenero" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGenero">
+              <PropertyRef Name="idGenero" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idNac__5FB337D6">
+          <End Role="InfoNacionalidad" Type="Self.InfoNacionalidad" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoNacionalidad">
+              <PropertyRef Name="idNacionalidad" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idNacionalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idUsu__5EBF139D">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__perfilPro__idCon__74AE54BC">
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="0..1" />
+          <End Role="perfilProfesional_PerfilConcurso" Type="Self.perfilProfesional_PerfilConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilDelConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Principal>
+            <Dependent Role="perfilProfesional_PerfilConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__perfilPro__idPer__75A278F5">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="perfilProfesional_PerfilConcurso" Type="Self.perfilProfesional_PerfilConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="perfilProfesional_PerfilConcurso">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol__idEstado__398D8EEE">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol_Usuar__idRol__403A8C7D">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Rol_Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol_Usuar__idUsu__3F466844">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Rol_Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__idRol__3C69FB99">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_SIRESEPModelStoreContainer">
+          <EntitySet Name="aplicaciones" EntityType="Self.aplicaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Carrera" EntityType="Self.Carrera" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Certificaciones" EntityType="Self.Certificaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="certificaciones_perfilProfesional" EntityType="Self.certificaciones_perfilProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="habilidades_perfilProfesional" EntityType="Self.habilidades_perfilProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoAdicional" EntityType="Self.InfoAdicional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="infoAdicional_perfilProfesional" EntityType="Self.infoAdicional_perfilProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoEstudios" EntityType="Self.InfoEstudios" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="infoEstudios_perfilProfesional" EntityType="Self.infoEstudios_perfilProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoGenero" EntityType="Self.InfoGenero" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoGradoEstudio" EntityType="Self.InfoGradoEstudio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoHabilidad" EntityType="Self.InfoHabilidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoIdioma" EntityType="Self.InfoIdioma" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoInstitucion" EntityType="Self.InfoInstitucion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoLaboral" EntityType="Self.InfoLaboral" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="infoLaboral_perfilProfesional" EntityType="Self.infoLaboral_perfilProfesional" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoLicenciaConducir" EntityType="Self.InfoLicenciaConducir" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoNacionalidad" EntityType="Self.InfoNacionalidad" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoPuesto" EntityType="Self.InfoPuesto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InfoRequisitos" EntityType="Self.InfoRequisitos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilDelConcurso" EntityType="Self.PerfilDelConcurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PerfilPersona" EntityType="Self.PerfilPersona" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="perfilProfesional_PerfilConcurso" EntityType="Self.perfilProfesional_PerfilConcurso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol_Usuario" EntityType="Self.Rol_Usuario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__aplicacio__idCon__70DDC3D8" Association="Self.FK__aplicacio__idCon__70DDC3D8">
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+            <End Role="aplicaciones" EntitySet="aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aplicacio__idPer__71D1E811" Association="Self.FK__aplicacio__idPer__71D1E811">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="aplicaciones" EntitySet="aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__certifica__idCer__787EE5A0" Association="Self.FK__certifica__idCer__787EE5A0">
+            <End Role="Certificaciones" EntitySet="Certificaciones" />
+            <End Role="certificaciones_perfilProfesional" EntitySet="certificaciones_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__certifica__idPer__797309D9" Association="Self.FK__certifica__idPer__797309D9">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="certificaciones_perfilProfesional" EntitySet="certificaciones_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__habilidad__idHab__00200768" Association="Self.FK__habilidad__idHab__00200768">
+            <End Role="InfoHabilidad" EntitySet="InfoHabilidad" />
+            <End Role="habilidades_perfilProfesional" EntitySet="habilidades_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__habilidad__idPer__01142BA1" Association="Self.FK__habilidad__idPer__01142BA1">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="habilidades_perfilProfesional" EntitySet="habilidades_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoAdici__idIdi__59063A47" Association="Self.FK__InfoAdici__idIdi__59063A47">
+            <End Role="InfoIdioma" EntitySet="InfoIdioma" />
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoAdici__idInf__03F0984C" Association="Self.FK__infoAdici__idInf__03F0984C">
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+            <End Role="infoAdicional_perfilProfesional" EntitySet="infoAdicional_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoAdici__idLic__59FA5E80" Association="Self.FK__InfoAdici__idLic__59FA5E80">
+            <End Role="InfoLicenciaConducir" EntitySet="InfoLicenciaConducir" />
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoAdici__idPer__04E4BC85" Association="Self.FK__infoAdici__idPer__04E4BC85">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoAdicional_perfilProfesional" EntitySet="infoAdicional_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idCar__4CA06362" Association="Self.FK__InfoEstud__idCar__4CA06362">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoEstud__idEst__7C4F7684" Association="Self.FK__infoEstud__idEst__7C4F7684">
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+            <End Role="infoEstudios_perfilProfesional" EntitySet="infoEstudios_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idGra__4AB81AF0" Association="Self.FK__InfoEstud__idGra__4AB81AF0">
+            <End Role="InfoGradoEstudio" EntitySet="InfoGradoEstudio" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idIns__4BAC3F29" Association="Self.FK__InfoEstud__idIns__4BAC3F29">
+            <End Role="InfoInstitucion" EntitySet="InfoInstitucion" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoEstud__idPer__7D439ABD" Association="Self.FK__infoEstud__idPer__7D439ABD">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoEstudios_perfilProfesional" EntitySet="infoEstudios_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoLabor__idInf__07C12930" Association="Self.FK__infoLabor__idInf__07C12930">
+            <End Role="InfoLaboral" EntitySet="InfoLaboral" />
+            <End Role="infoLaboral_perfilProfesional" EntitySet="infoLaboral_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoLabor__idPer__08B54D69" Association="Self.FK__infoLabor__idPer__08B54D69">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoLaboral_perfilProfesional" EntitySet="infoLaboral_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idCar__693CA210" Association="Self.FK__InfoRequi__idCar__693CA210">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idGra__6754599E" Association="Self.FK__InfoRequi__idGra__6754599E">
+            <End Role="InfoGradoEstudio" EntitySet="InfoGradoEstudio" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idHab__68487DD7" Association="Self.FK__InfoRequi__idHab__68487DD7">
+            <End Role="InfoHabilidad" EntitySet="InfoHabilidad" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idIdi__66603565" Association="Self.FK__InfoRequi__idIdi__66603565">
+            <End Role="InfoIdioma" EntitySet="InfoIdioma" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idEst__6E01572D" Association="Self.FK__PerfilDel__idEst__6E01572D">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idInf__6D0D32F4" Association="Self.FK__PerfilDel__idInf__6D0D32F4">
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idPue__6C190EBB" Association="Self.FK__PerfilDel__idPue__6C190EBB">
+            <End Role="InfoPuesto" EntitySet="InfoPuesto" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idEst__619B8048" Association="Self.FK__PerfilPer__idEst__619B8048">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idGen__60A75C0F" Association="Self.FK__PerfilPer__idGen__60A75C0F">
+            <End Role="InfoGenero" EntitySet="InfoGenero" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idNac__5FB337D6" Association="Self.FK__PerfilPer__idNac__5FB337D6">
+            <End Role="InfoNacionalidad" EntitySet="InfoNacionalidad" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idUsu__5EBF139D" Association="Self.FK__PerfilPer__idUsu__5EBF139D">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__perfilPro__idCon__74AE54BC" Association="Self.FK__perfilPro__idCon__74AE54BC">
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+            <End Role="perfilProfesional_PerfilConcurso" EntitySet="perfilProfesional_PerfilConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__perfilPro__idPer__75A278F5" Association="Self.FK__perfilPro__idPer__75A278F5">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="perfilProfesional_PerfilConcurso" EntitySet="perfilProfesional_PerfilConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol__idEstado__398D8EEE" Association="Self.FK__Rol__idEstado__398D8EEE">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol_Usuar__idRol__403A8C7D" Association="Self.FK__Rol_Usuar__idRol__403A8C7D">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol_Usuar__idUsu__3F466844" Association="Self.FK__Rol_Usuar__idUsu__3F466844">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__idRol__3C69FB99" Association="Self.FK__Usuario__idRol__3C69FB99">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BD_SIRESEPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="aplicaciones">
+          <Key>
+            <PropertyRef Name="idAplicacion" />
+          </Key>
+          <Property Name="idAplicacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idConcurso" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="PerfilDelConcurso" Relationship="Self.FK__aplicacio__idCon__70DDC3D8" FromRole="aplicaciones" ToRole="PerfilDelConcurso" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__aplicacio__idPer__71D1E811" FromRole="aplicaciones" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="Carrera">
+          <Key>
+            <PropertyRef Name="idCarrera" />
+          </Key>
+          <Property Name="idCarrera" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="carrera" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InfoEstudios" Relationship="Self.FK__InfoEstud__idCar__4CA06362" FromRole="Carrera" ToRole="InfoEstudios" />
+          <NavigationProperty Name="InfoRequisitos" Relationship="Self.FK__InfoRequi__idCar__693CA210" FromRole="Carrera" ToRole="InfoRequisitos" />
+        </EntityType>
+        <EntityType Name="Certificaciones">
+          <Key>
+            <PropertyRef Name="idCertificacion" />
+          </Key>
+          <Property Name="idCertificacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ano" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="certificaciones_perfilProfesional" Relationship="Self.FK__certifica__idCer__787EE5A0" FromRole="Certificaciones" ToRole="certificaciones_perfilProfesional" />
+        </EntityType>
+        <EntityType Name="certificaciones_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idCertificacionProfesional" />
+          </Key>
+          <Property Name="idCertificacionProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idCertificacion" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="Certificaciones" Relationship="Self.FK__certifica__idCer__787EE5A0" FromRole="certificaciones_perfilProfesional" ToRole="Certificaciones" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__certifica__idPer__797309D9" FromRole="certificaciones_perfilProfesional" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="Estado">
+          <Key>
+            <PropertyRef Name="idEstado" />
+          </Key>
+          <Property Name="idEstado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="estado1" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PerfilDelConcurso" Relationship="Self.FK__PerfilDel__idEst__6E01572D" FromRole="Estado" ToRole="PerfilDelConcurso" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__PerfilPer__idEst__619B8048" FromRole="Estado" ToRole="PerfilPersona" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK__Rol__idEstado__398D8EEE" FromRole="Estado" ToRole="Rol" />
+        </EntityType>
+        <EntityType Name="habilidades_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idHabilidadProfesional" />
+          </Key>
+          <Property Name="idHabilidadProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idHabilidad" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="InfoHabilidad" Relationship="Self.FK__habilidad__idHab__00200768" FromRole="habilidades_perfilProfesional" ToRole="InfoHabilidad" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__habilidad__idPer__01142BA1" FromRole="habilidades_perfilProfesional" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoAdicional">
+          <Key>
+            <PropertyRef Name="idInfoAdicional" />
+          </Key>
+          <Property Name="idInfoAdicional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdioma" Type="Int32" />
+          <Property Name="nivelIdioma" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="idLicenciaConducir" Type="Int32" />
+          <NavigationProperty Name="InfoIdioma" Relationship="Self.FK__InfoAdici__idIdi__59063A47" FromRole="InfoAdicional" ToRole="InfoIdioma" />
+          <NavigationProperty Name="infoAdicional_perfilProfesional" Relationship="Self.FK__infoAdici__idInf__03F0984C" FromRole="InfoAdicional" ToRole="infoAdicional_perfilProfesional" />
+          <NavigationProperty Name="InfoLicenciaConducir" Relationship="Self.FK__InfoAdici__idLic__59FA5E80" FromRole="InfoAdicional" ToRole="InfoLicenciaConducir" />
+        </EntityType>
+        <EntityType Name="infoAdicional_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idInfoAdicionalProfesional" />
+          </Key>
+          <Property Name="idInfoAdicionalProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInfoAdicional" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="InfoAdicional" Relationship="Self.FK__infoAdici__idInf__03F0984C" FromRole="infoAdicional_perfilProfesional" ToRole="InfoAdicional" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__infoAdici__idPer__04E4BC85" FromRole="infoAdicional_perfilProfesional" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoEstudios">
+          <Key>
+            <PropertyRef Name="idEstudios" />
+          </Key>
+          <Property Name="idEstudios" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idGradoEstudio" Type="Int32" />
+          <Property Name="idInstitucion" Type="Int32" />
+          <Property Name="idCarrera" Type="Int32" />
+          <NavigationProperty Name="Carrera" Relationship="Self.FK__InfoEstud__idCar__4CA06362" FromRole="InfoEstudios" ToRole="Carrera" />
+          <NavigationProperty Name="infoEstudios_perfilProfesional" Relationship="Self.FK__infoEstud__idEst__7C4F7684" FromRole="InfoEstudios" ToRole="infoEstudios_perfilProfesional" />
+          <NavigationProperty Name="InfoGradoEstudio" Relationship="Self.FK__InfoEstud__idGra__4AB81AF0" FromRole="InfoEstudios" ToRole="InfoGradoEstudio" />
+          <NavigationProperty Name="InfoInstitucion" Relationship="Self.FK__InfoEstud__idIns__4BAC3F29" FromRole="InfoEstudios" ToRole="InfoInstitucion" />
+        </EntityType>
+        <EntityType Name="infoEstudios_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idEstudiosProfesional" />
+          </Key>
+          <Property Name="idEstudiosProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idEstudios" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="InfoEstudios" Relationship="Self.FK__infoEstud__idEst__7C4F7684" FromRole="infoEstudios_perfilProfesional" ToRole="InfoEstudios" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__infoEstud__idPer__7D439ABD" FromRole="infoEstudios_perfilProfesional" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoGenero">
+          <Key>
+            <PropertyRef Name="idGenero" />
+          </Key>
+          <Property Name="idGenero" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="genero" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__PerfilPer__idGen__60A75C0F" FromRole="InfoGenero" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoGradoEstudio">
+          <Key>
+            <PropertyRef Name="idGradoEstudio" />
+          </Key>
+          <Property Name="idGradoEstudio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InfoEstudios" Relationship="Self.FK__InfoEstud__idGra__4AB81AF0" FromRole="InfoGradoEstudio" ToRole="InfoEstudios" />
+          <NavigationProperty Name="InfoRequisitos" Relationship="Self.FK__InfoRequi__idGra__6754599E" FromRole="InfoGradoEstudio" ToRole="InfoRequisitos" />
+        </EntityType>
+        <EntityType Name="InfoHabilidad">
+          <Key>
+            <PropertyRef Name="idHabilidad" />
+          </Key>
+          <Property Name="idHabilidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="habilidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="habilidades_perfilProfesional" Relationship="Self.FK__habilidad__idHab__00200768" FromRole="InfoHabilidad" ToRole="habilidades_perfilProfesional" />
+          <NavigationProperty Name="InfoRequisitos" Relationship="Self.FK__InfoRequi__idHab__68487DD7" FromRole="InfoHabilidad" ToRole="InfoRequisitos" />
+        </EntityType>
+        <EntityType Name="InfoIdioma">
+          <Key>
+            <PropertyRef Name="idIdioma" />
+          </Key>
+          <Property Name="idIdioma" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idioma" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InfoAdicional" Relationship="Self.FK__InfoAdici__idIdi__59063A47" FromRole="InfoIdioma" ToRole="InfoAdicional" />
+          <NavigationProperty Name="InfoRequisitos" Relationship="Self.FK__InfoRequi__idIdi__66603565" FromRole="InfoIdioma" ToRole="InfoRequisitos" />
+        </EntityType>
+        <EntityType Name="InfoInstitucion">
+          <Key>
+            <PropertyRef Name="idInstitucion" />
+          </Key>
+          <Property Name="idInstitucion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreInstitucion" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="ano" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="InfoEstudios" Relationship="Self.FK__InfoEstud__idIns__4BAC3F29" FromRole="InfoInstitucion" ToRole="InfoEstudios" />
+        </EntityType>
+        <EntityType Name="InfoLaboral">
+          <Key>
+            <PropertyRef Name="idInfoLaboral" />
+          </Key>
+          <Property Name="idInfoLaboral" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="profesion" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="tiempoExperiencia" Type="Int32" />
+          <NavigationProperty Name="infoLaboral_perfilProfesional" Relationship="Self.FK__infoLabor__idInf__07C12930" FromRole="InfoLaboral" ToRole="infoLaboral_perfilProfesional" />
+        </EntityType>
+        <EntityType Name="infoLaboral_perfilProfesional">
+          <Key>
+            <PropertyRef Name="idInfoLaboralProfesional" />
+          </Key>
+          <Property Name="idInfoLaboralProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idInfoLaboral" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <NavigationProperty Name="InfoLaboral" Relationship="Self.FK__infoLabor__idInf__07C12930" FromRole="infoLaboral_perfilProfesional" ToRole="InfoLaboral" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__infoLabor__idPer__08B54D69" FromRole="infoLaboral_perfilProfesional" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoLicenciaConducir">
+          <Key>
+            <PropertyRef Name="idLicenciaConducir" />
+          </Key>
+          <Property Name="idLicenciaConducir" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="licencia" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="InfoAdicional" Relationship="Self.FK__InfoAdici__idLic__59FA5E80" FromRole="InfoLicenciaConducir" ToRole="InfoAdicional" />
+        </EntityType>
+        <EntityType Name="InfoNacionalidad">
+          <Key>
+            <PropertyRef Name="idNacionalidad" />
+          </Key>
+          <Property Name="idNacionalidad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nacionalidad" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__PerfilPer__idNac__5FB337D6" FromRole="InfoNacionalidad" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="InfoPuesto">
+          <Key>
+            <PropertyRef Name="idPuesto" />
+          </Key>
+          <Property Name="idPuesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="puesto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PerfilDelConcurso" Relationship="Self.FK__PerfilDel__idPue__6C190EBB" FromRole="InfoPuesto" ToRole="PerfilDelConcurso" />
+        </EntityType>
+        <EntityType Name="InfoRequisitos">
+          <Key>
+            <PropertyRef Name="idInfoRequisitos" />
+          </Key>
+          <Property Name="idInfoRequisitos" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idIdioma" Type="Int32" />
+          <Property Name="idGradoEstudio" Type="Int32" />
+          <Property Name="idHabilidad" Type="Int32" />
+          <Property Name="idCarrera" Type="Int32" />
+          <NavigationProperty Name="Carrera" Relationship="Self.FK__InfoRequi__idCar__693CA210" FromRole="InfoRequisitos" ToRole="Carrera" />
+          <NavigationProperty Name="InfoGradoEstudio" Relationship="Self.FK__InfoRequi__idGra__6754599E" FromRole="InfoRequisitos" ToRole="InfoGradoEstudio" />
+          <NavigationProperty Name="InfoHabilidad" Relationship="Self.FK__InfoRequi__idHab__68487DD7" FromRole="InfoRequisitos" ToRole="InfoHabilidad" />
+          <NavigationProperty Name="InfoIdioma" Relationship="Self.FK__InfoRequi__idIdi__66603565" FromRole="InfoRequisitos" ToRole="InfoIdioma" />
+          <NavigationProperty Name="PerfilDelConcurso" Relationship="Self.FK__PerfilDel__idInf__6D0D32F4" FromRole="InfoRequisitos" ToRole="PerfilDelConcurso" />
+        </EntityType>
+        <EntityType Name="PerfilDelConcurso">
+          <Key>
+            <PropertyRef Name="idConcurso" />
+          </Key>
+          <Property Name="idConcurso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idPuesto" Type="Int32" />
+          <Property Name="idInfoRequisitos" Type="Int32" />
+          <Property Name="idEstado" Type="Int32" />
+          <Property Name="codConcurso" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="fechaCierre" Type="DateTime" Precision="0" />
+          <Property Name="descripcionConcurso" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="aplicaciones" Relationship="Self.FK__aplicacio__idCon__70DDC3D8" FromRole="PerfilDelConcurso" ToRole="aplicaciones" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK__PerfilDel__idEst__6E01572D" FromRole="PerfilDelConcurso" ToRole="Estado" />
+          <NavigationProperty Name="InfoPuesto" Relationship="Self.FK__PerfilDel__idPue__6C190EBB" FromRole="PerfilDelConcurso" ToRole="InfoPuesto" />
+          <NavigationProperty Name="InfoRequisitos" Relationship="Self.FK__PerfilDel__idInf__6D0D32F4" FromRole="PerfilDelConcurso" ToRole="InfoRequisitos" />
+          <NavigationProperty Name="perfilProfesional_PerfilConcurso" Relationship="Self.FK__perfilPro__idCon__74AE54BC" FromRole="PerfilDelConcurso" ToRole="perfilProfesional_PerfilConcurso" />
+        </EntityType>
+        <EntityType Name="PerfilPersona">
+          <Key>
+            <PropertyRef Name="idPerfilProfesional" />
+          </Key>
+          <Property Name="idPerfilProfesional" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="nombre" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="telefono" Type="Int32" />
+          <Property Name="direccion" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="idNacionalidad" Type="Int32" />
+          <Property Name="idGenero" Type="Int32" />
+          <Property Name="idEstado" Type="Int32" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="FechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="aplicaciones" Relationship="Self.FK__aplicacio__idPer__71D1E811" FromRole="PerfilPersona" ToRole="aplicaciones" />
+          <NavigationProperty Name="certificaciones_perfilProfesional" Relationship="Self.FK__certifica__idPer__797309D9" FromRole="PerfilPersona" ToRole="certificaciones_perfilProfesional" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK__PerfilPer__idEst__619B8048" FromRole="PerfilPersona" ToRole="Estado" />
+          <NavigationProperty Name="habilidades_perfilProfesional" Relationship="Self.FK__habilidad__idPer__01142BA1" FromRole="PerfilPersona" ToRole="habilidades_perfilProfesional" />
+          <NavigationProperty Name="infoAdicional_perfilProfesional" Relationship="Self.FK__infoAdici__idPer__04E4BC85" FromRole="PerfilPersona" ToRole="infoAdicional_perfilProfesional" />
+          <NavigationProperty Name="infoEstudios_perfilProfesional" Relationship="Self.FK__infoEstud__idPer__7D439ABD" FromRole="PerfilPersona" ToRole="infoEstudios_perfilProfesional" />
+          <NavigationProperty Name="InfoGenero" Relationship="Self.FK__PerfilPer__idGen__60A75C0F" FromRole="PerfilPersona" ToRole="InfoGenero" />
+          <NavigationProperty Name="infoLaboral_perfilProfesional" Relationship="Self.FK__infoLabor__idPer__08B54D69" FromRole="PerfilPersona" ToRole="infoLaboral_perfilProfesional" />
+          <NavigationProperty Name="InfoNacionalidad" Relationship="Self.FK__PerfilPer__idNac__5FB337D6" FromRole="PerfilPersona" ToRole="InfoNacionalidad" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__PerfilPer__idUsu__5EBF139D" FromRole="PerfilPersona" ToRole="Usuario" />
+          <NavigationProperty Name="perfilProfesional_PerfilConcurso" Relationship="Self.FK__perfilPro__idPer__75A278F5" FromRole="PerfilPersona" ToRole="perfilProfesional_PerfilConcurso" />
+        </EntityType>
+        <EntityType Name="perfilProfesional_PerfilConcurso">
+          <Key>
+            <PropertyRef Name="idMatch" />
+          </Key>
+          <Property Name="idMatch" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idConcurso" Type="Int32" />
+          <Property Name="idPerfilProfesional" Type="Int32" />
+          <Property Name="porcentajeMatch" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="PerfilDelConcurso" Relationship="Self.FK__perfilPro__idCon__74AE54BC" FromRole="perfilProfesional_PerfilConcurso" ToRole="PerfilDelConcurso" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__perfilPro__idPer__75A278F5" FromRole="perfilProfesional_PerfilConcurso" ToRole="PerfilPersona" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombreRol" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="idEstado" Type="Int32" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Estado" Relationship="Self.FK__Rol__idEstado__398D8EEE" FromRole="Rol" ToRole="Estado" />
+          <NavigationProperty Name="Rol_Usuario" Relationship="Self.FK__Rol_Usuar__idRol__403A8C7D" FromRole="Rol" ToRole="Rol_Usuario" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Usuario__idRol__3C69FB99" FromRole="Rol" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Rol_Usuario">
+          <Key>
+            <PropertyRef Name="idRolUsuario" />
+          </Key>
+          <Property Name="idRolUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idUsuario" Type="Int32" />
+          <Property Name="idRol" Type="Int32" />
+          <Property Name="usuarioCrea" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaCreacion" Type="DateTime" Precision="0" />
+          <Property Name="usuarioModifica" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaModifica" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK__Rol_Usuar__idRol__403A8C7D" FromRole="Rol_Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Usuario" Relationship="Self.FK__Rol_Usuar__idUsu__3F466844" FromRole="Rol_Usuario" ToRole="Usuario" />
+        </EntityType>
+        <EntityType Name="Usuario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="correoElectronico" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="cedula" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="fechaRegistro" Type="DateTime" Precision="3" />
+          <Property Name="idRol" Type="Int32" />
+          <NavigationProperty Name="PerfilPersona" Relationship="Self.FK__PerfilPer__idUsu__5EBF139D" FromRole="Usuario" ToRole="PerfilPersona" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK__Usuario__idRol__3C69FB99" FromRole="Usuario" ToRole="Rol" />
+          <NavigationProperty Name="Rol_Usuario" Relationship="Self.FK__Rol_Usuar__idUsu__3F466844" FromRole="Usuario" ToRole="Rol_Usuario" />
+        </EntityType>
+        <Association Name="FK__aplicacio__idCon__70DDC3D8">
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="0..1" />
+          <End Role="aplicaciones" Type="Self.aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilDelConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Principal>
+            <Dependent Role="aplicaciones">
+              <PropertyRef Name="idConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__aplicacio__idPer__71D1E811">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="aplicaciones" Type="Self.aplicaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="aplicaciones">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idCar__4CA06362">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="idCarrera" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idCar__693CA210">
+          <End Role="Carrera" Type="Self.Carrera" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Carrera">
+              <PropertyRef Name="idCarrera" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idCarrera" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__certifica__idCer__787EE5A0">
+          <End Role="Certificaciones" Type="Self.Certificaciones" Multiplicity="0..1" />
+          <End Role="certificaciones_perfilProfesional" Type="Self.certificaciones_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Certificaciones">
+              <PropertyRef Name="idCertificacion" />
+            </Principal>
+            <Dependent Role="certificaciones_perfilProfesional">
+              <PropertyRef Name="idCertificacion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__certifica__idPer__797309D9">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="certificaciones_perfilProfesional" Type="Self.certificaciones_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="certificaciones_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idEst__6E01572D">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idEst__619B8048">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol__idEstado__398D8EEE">
+          <End Role="Estado" Type="Self.Estado" Multiplicity="0..1" />
+          <End Role="Rol" Type="Self.Rol" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Estado">
+              <PropertyRef Name="idEstado" />
+            </Principal>
+            <Dependent Role="Rol">
+              <PropertyRef Name="idEstado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__habilidad__idHab__00200768">
+          <End Role="InfoHabilidad" Type="Self.InfoHabilidad" Multiplicity="0..1" />
+          <End Role="habilidades_perfilProfesional" Type="Self.habilidades_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoHabilidad">
+              <PropertyRef Name="idHabilidad" />
+            </Principal>
+            <Dependent Role="habilidades_perfilProfesional">
+              <PropertyRef Name="idHabilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__habilidad__idPer__01142BA1">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="habilidades_perfilProfesional" Type="Self.habilidades_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="habilidades_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoAdici__idIdi__59063A47">
+          <End Role="InfoIdioma" Type="Self.InfoIdioma" Multiplicity="0..1" />
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoIdioma">
+              <PropertyRef Name="idIdioma" />
+            </Principal>
+            <Dependent Role="InfoAdicional">
+              <PropertyRef Name="idIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoAdici__idInf__03F0984C">
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="0..1" />
+          <End Role="infoAdicional_perfilProfesional" Type="Self.infoAdicional_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoAdicional">
+              <PropertyRef Name="idInfoAdicional" />
+            </Principal>
+            <Dependent Role="infoAdicional_perfilProfesional">
+              <PropertyRef Name="idInfoAdicional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoAdici__idLic__59FA5E80">
+          <End Role="InfoLicenciaConducir" Type="Self.InfoLicenciaConducir" Multiplicity="0..1" />
+          <End Role="InfoAdicional" Type="Self.InfoAdicional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoLicenciaConducir">
+              <PropertyRef Name="idLicenciaConducir" />
+            </Principal>
+            <Dependent Role="InfoAdicional">
+              <PropertyRef Name="idLicenciaConducir" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoAdici__idPer__04E4BC85">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoAdicional_perfilProfesional" Type="Self.infoAdicional_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoAdicional_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoEstud__idEst__7C4F7684">
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="0..1" />
+          <End Role="infoEstudios_perfilProfesional" Type="Self.infoEstudios_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoEstudios">
+              <PropertyRef Name="idEstudios" />
+            </Principal>
+            <Dependent Role="infoEstudios_perfilProfesional">
+              <PropertyRef Name="idEstudios" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idGra__4AB81AF0">
+          <End Role="InfoGradoEstudio" Type="Self.InfoGradoEstudio" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGradoEstudio">
+              <PropertyRef Name="idGradoEstudio" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idGradoEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoEstud__idIns__4BAC3F29">
+          <End Role="InfoInstitucion" Type="Self.InfoInstitucion" Multiplicity="0..1" />
+          <End Role="InfoEstudios" Type="Self.InfoEstudios" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoInstitucion">
+              <PropertyRef Name="idInstitucion" />
+            </Principal>
+            <Dependent Role="InfoEstudios">
+              <PropertyRef Name="idInstitucion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoEstud__idPer__7D439ABD">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoEstudios_perfilProfesional" Type="Self.infoEstudios_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoEstudios_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idGen__60A75C0F">
+          <End Role="InfoGenero" Type="Self.InfoGenero" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGenero">
+              <PropertyRef Name="idGenero" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idGenero" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idGra__6754599E">
+          <End Role="InfoGradoEstudio" Type="Self.InfoGradoEstudio" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoGradoEstudio">
+              <PropertyRef Name="idGradoEstudio" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idGradoEstudio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idHab__68487DD7">
+          <End Role="InfoHabilidad" Type="Self.InfoHabilidad" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoHabilidad">
+              <PropertyRef Name="idHabilidad" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idHabilidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__InfoRequi__idIdi__66603565">
+          <End Role="InfoIdioma" Type="Self.InfoIdioma" Multiplicity="0..1" />
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoIdioma">
+              <PropertyRef Name="idIdioma" />
+            </Principal>
+            <Dependent Role="InfoRequisitos">
+              <PropertyRef Name="idIdioma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoLabor__idInf__07C12930">
+          <End Role="InfoLaboral" Type="Self.InfoLaboral" Multiplicity="0..1" />
+          <End Role="infoLaboral_perfilProfesional" Type="Self.infoLaboral_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoLaboral">
+              <PropertyRef Name="idInfoLaboral" />
+            </Principal>
+            <Dependent Role="infoLaboral_perfilProfesional">
+              <PropertyRef Name="idInfoLaboral" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__infoLabor__idPer__08B54D69">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="infoLaboral_perfilProfesional" Type="Self.infoLaboral_perfilProfesional" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="infoLaboral_perfilProfesional">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idNac__5FB337D6">
+          <End Role="InfoNacionalidad" Type="Self.InfoNacionalidad" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoNacionalidad">
+              <PropertyRef Name="idNacionalidad" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idNacionalidad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idPue__6C190EBB">
+          <End Role="InfoPuesto" Type="Self.InfoPuesto" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoPuesto">
+              <PropertyRef Name="idPuesto" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilDel__idInf__6D0D32F4">
+          <End Role="InfoRequisitos" Type="Self.InfoRequisitos" Multiplicity="0..1" />
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InfoRequisitos">
+              <PropertyRef Name="idInfoRequisitos" />
+            </Principal>
+            <Dependent Role="PerfilDelConcurso">
+              <PropertyRef Name="idInfoRequisitos" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__perfilPro__idCon__74AE54BC">
+          <End Role="PerfilDelConcurso" Type="Self.PerfilDelConcurso" Multiplicity="0..1" />
+          <End Role="perfilProfesional_PerfilConcurso" Type="Self.perfilProfesional_PerfilConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilDelConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Principal>
+            <Dependent Role="perfilProfesional_PerfilConcurso">
+              <PropertyRef Name="idConcurso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PerfilPer__idUsu__5EBF139D">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="PerfilPersona">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__perfilPro__idPer__75A278F5">
+          <End Role="PerfilPersona" Type="Self.PerfilPersona" Multiplicity="0..1" />
+          <End Role="perfilProfesional_PerfilConcurso" Type="Self.perfilProfesional_PerfilConcurso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PerfilPersona">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Principal>
+            <Dependent Role="perfilProfesional_PerfilConcurso">
+              <PropertyRef Name="idPerfilProfesional" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol_Usuar__idRol__403A8C7D">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Rol_Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Usuario__idRol__3C69FB99">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="0..1" />
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="idRol" />
+            </Principal>
+            <Dependent Role="Usuario">
+              <PropertyRef Name="idRol" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Rol_Usuar__idUsu__3F466844">
+          <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+          <End Role="Rol_Usuario" Type="Self.Rol_Usuario" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Rol_Usuario">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BD_SIRESEPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="aplicaciones" EntityType="Self.aplicaciones" />
+          <EntitySet Name="Carrera" EntityType="Self.Carrera" />
+          <EntitySet Name="Certificaciones" EntityType="Self.Certificaciones" />
+          <EntitySet Name="certificaciones_perfilProfesional" EntityType="Self.certificaciones_perfilProfesional" />
+          <EntitySet Name="Estado" EntityType="Self.Estado" />
+          <EntitySet Name="habilidades_perfilProfesional" EntityType="Self.habilidades_perfilProfesional" />
+          <EntitySet Name="InfoAdicional" EntityType="Self.InfoAdicional" />
+          <EntitySet Name="infoAdicional_perfilProfesional" EntityType="Self.infoAdicional_perfilProfesional" />
+          <EntitySet Name="InfoEstudios" EntityType="Self.InfoEstudios" />
+          <EntitySet Name="infoEstudios_perfilProfesional" EntityType="Self.infoEstudios_perfilProfesional" />
+          <EntitySet Name="InfoGenero" EntityType="Self.InfoGenero" />
+          <EntitySet Name="InfoGradoEstudio" EntityType="Self.InfoGradoEstudio" />
+          <EntitySet Name="InfoHabilidad" EntityType="Self.InfoHabilidad" />
+          <EntitySet Name="InfoIdioma" EntityType="Self.InfoIdioma" />
+          <EntitySet Name="InfoInstitucion" EntityType="Self.InfoInstitucion" />
+          <EntitySet Name="InfoLaboral" EntityType="Self.InfoLaboral" />
+          <EntitySet Name="infoLaboral_perfilProfesional" EntityType="Self.infoLaboral_perfilProfesional" />
+          <EntitySet Name="InfoLicenciaConducir" EntityType="Self.InfoLicenciaConducir" />
+          <EntitySet Name="InfoNacionalidad" EntityType="Self.InfoNacionalidad" />
+          <EntitySet Name="InfoPuesto" EntityType="Self.InfoPuesto" />
+          <EntitySet Name="InfoRequisitos" EntityType="Self.InfoRequisitos" />
+          <EntitySet Name="PerfilDelConcurso" EntityType="Self.PerfilDelConcurso" />
+          <EntitySet Name="PerfilPersona" EntityType="Self.PerfilPersona" />
+          <EntitySet Name="perfilProfesional_PerfilConcurso" EntityType="Self.perfilProfesional_PerfilConcurso" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="Rol_Usuario" EntityType="Self.Rol_Usuario" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" />
+          <AssociationSet Name="FK__aplicacio__idCon__70DDC3D8" Association="Self.FK__aplicacio__idCon__70DDC3D8">
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+            <End Role="aplicaciones" EntitySet="aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__aplicacio__idPer__71D1E811" Association="Self.FK__aplicacio__idPer__71D1E811">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="aplicaciones" EntitySet="aplicaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idCar__4CA06362" Association="Self.FK__InfoEstud__idCar__4CA06362">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idCar__693CA210" Association="Self.FK__InfoRequi__idCar__693CA210">
+            <End Role="Carrera" EntitySet="Carrera" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__certifica__idCer__787EE5A0" Association="Self.FK__certifica__idCer__787EE5A0">
+            <End Role="Certificaciones" EntitySet="Certificaciones" />
+            <End Role="certificaciones_perfilProfesional" EntitySet="certificaciones_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__certifica__idPer__797309D9" Association="Self.FK__certifica__idPer__797309D9">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="certificaciones_perfilProfesional" EntitySet="certificaciones_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idEst__6E01572D" Association="Self.FK__PerfilDel__idEst__6E01572D">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idEst__619B8048" Association="Self.FK__PerfilPer__idEst__619B8048">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol__idEstado__398D8EEE" Association="Self.FK__Rol__idEstado__398D8EEE">
+            <End Role="Estado" EntitySet="Estado" />
+            <End Role="Rol" EntitySet="Rol" />
+          </AssociationSet>
+          <AssociationSet Name="FK__habilidad__idHab__00200768" Association="Self.FK__habilidad__idHab__00200768">
+            <End Role="InfoHabilidad" EntitySet="InfoHabilidad" />
+            <End Role="habilidades_perfilProfesional" EntitySet="habilidades_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__habilidad__idPer__01142BA1" Association="Self.FK__habilidad__idPer__01142BA1">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="habilidades_perfilProfesional" EntitySet="habilidades_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoAdici__idIdi__59063A47" Association="Self.FK__InfoAdici__idIdi__59063A47">
+            <End Role="InfoIdioma" EntitySet="InfoIdioma" />
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoAdici__idInf__03F0984C" Association="Self.FK__infoAdici__idInf__03F0984C">
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+            <End Role="infoAdicional_perfilProfesional" EntitySet="infoAdicional_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoAdici__idLic__59FA5E80" Association="Self.FK__InfoAdici__idLic__59FA5E80">
+            <End Role="InfoLicenciaConducir" EntitySet="InfoLicenciaConducir" />
+            <End Role="InfoAdicional" EntitySet="InfoAdicional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoAdici__idPer__04E4BC85" Association="Self.FK__infoAdici__idPer__04E4BC85">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoAdicional_perfilProfesional" EntitySet="infoAdicional_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoEstud__idEst__7C4F7684" Association="Self.FK__infoEstud__idEst__7C4F7684">
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+            <End Role="infoEstudios_perfilProfesional" EntitySet="infoEstudios_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idGra__4AB81AF0" Association="Self.FK__InfoEstud__idGra__4AB81AF0">
+            <End Role="InfoGradoEstudio" EntitySet="InfoGradoEstudio" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoEstud__idIns__4BAC3F29" Association="Self.FK__InfoEstud__idIns__4BAC3F29">
+            <End Role="InfoInstitucion" EntitySet="InfoInstitucion" />
+            <End Role="InfoEstudios" EntitySet="InfoEstudios" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoEstud__idPer__7D439ABD" Association="Self.FK__infoEstud__idPer__7D439ABD">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoEstudios_perfilProfesional" EntitySet="infoEstudios_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idGen__60A75C0F" Association="Self.FK__PerfilPer__idGen__60A75C0F">
+            <End Role="InfoGenero" EntitySet="InfoGenero" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idGra__6754599E" Association="Self.FK__InfoRequi__idGra__6754599E">
+            <End Role="InfoGradoEstudio" EntitySet="InfoGradoEstudio" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idHab__68487DD7" Association="Self.FK__InfoRequi__idHab__68487DD7">
+            <End Role="InfoHabilidad" EntitySet="InfoHabilidad" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__InfoRequi__idIdi__66603565" Association="Self.FK__InfoRequi__idIdi__66603565">
+            <End Role="InfoIdioma" EntitySet="InfoIdioma" />
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoLabor__idInf__07C12930" Association="Self.FK__infoLabor__idInf__07C12930">
+            <End Role="InfoLaboral" EntitySet="InfoLaboral" />
+            <End Role="infoLaboral_perfilProfesional" EntitySet="infoLaboral_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__infoLabor__idPer__08B54D69" Association="Self.FK__infoLabor__idPer__08B54D69">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="infoLaboral_perfilProfesional" EntitySet="infoLaboral_perfilProfesional" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idNac__5FB337D6" Association="Self.FK__PerfilPer__idNac__5FB337D6">
+            <End Role="InfoNacionalidad" EntitySet="InfoNacionalidad" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idPue__6C190EBB" Association="Self.FK__PerfilDel__idPue__6C190EBB">
+            <End Role="InfoPuesto" EntitySet="InfoPuesto" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilDel__idInf__6D0D32F4" Association="Self.FK__PerfilDel__idInf__6D0D32F4">
+            <End Role="InfoRequisitos" EntitySet="InfoRequisitos" />
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__perfilPro__idCon__74AE54BC" Association="Self.FK__perfilPro__idCon__74AE54BC">
+            <End Role="PerfilDelConcurso" EntitySet="PerfilDelConcurso" />
+            <End Role="perfilProfesional_PerfilConcurso" EntitySet="perfilProfesional_PerfilConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PerfilPer__idUsu__5EBF139D" Association="Self.FK__PerfilPer__idUsu__5EBF139D">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+          </AssociationSet>
+          <AssociationSet Name="FK__perfilPro__idPer__75A278F5" Association="Self.FK__perfilPro__idPer__75A278F5">
+            <End Role="PerfilPersona" EntitySet="PerfilPersona" />
+            <End Role="perfilProfesional_PerfilConcurso" EntitySet="perfilProfesional_PerfilConcurso" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol_Usuar__idRol__403A8C7D" Association="Self.FK__Rol_Usuar__idRol__403A8C7D">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Usuario__idRol__3C69FB99" Association="Self.FK__Usuario__idRol__3C69FB99">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Usuario" EntitySet="Usuario" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Rol_Usuar__idUsu__3F466844" Association="Self.FK__Rol_Usuar__idUsu__3F466844">
+            <End Role="Usuario" EntitySet="Usuario" />
+            <End Role="Rol_Usuario" EntitySet="Rol_Usuario" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="BD_SIRESEPModelStoreContainer" CdmEntityContainer="BD_SIRESEPEntities">
+          <EntitySetMapping Name="aplicaciones">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.aplicaciones">
+              <MappingFragment StoreEntitySet="aplicaciones">
+                <ScalarProperty Name="idAplicacion" ColumnName="idAplicacion" />
+                <ScalarProperty Name="idConcurso" ColumnName="idConcurso" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Carrera">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Carrera">
+              <MappingFragment StoreEntitySet="Carrera">
+                <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+                <ScalarProperty Name="carrera" ColumnName="carrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Certificaciones">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Certificaciones">
+              <MappingFragment StoreEntitySet="Certificaciones">
+                <ScalarProperty Name="idCertificacion" ColumnName="idCertificacion" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="certificaciones_perfilProfesional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.certificaciones_perfilProfesional">
+              <MappingFragment StoreEntitySet="certificaciones_perfilProfesional">
+                <ScalarProperty Name="idCertificacionProfesional" ColumnName="idCertificacionProfesional" />
+                <ScalarProperty Name="idCertificacion" ColumnName="idCertificacion" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Estado">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Estado">
+              <MappingFragment StoreEntitySet="Estado">
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="estado1" ColumnName="estado" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="habilidades_perfilProfesional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.habilidades_perfilProfesional">
+              <MappingFragment StoreEntitySet="habilidades_perfilProfesional">
+                <ScalarProperty Name="idHabilidadProfesional" ColumnName="idHabilidadProfesional" />
+                <ScalarProperty Name="idHabilidad" ColumnName="idHabilidad" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoAdicional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoAdicional">
+              <MappingFragment StoreEntitySet="InfoAdicional">
+                <ScalarProperty Name="idInfoAdicional" ColumnName="idInfoAdicional" />
+                <ScalarProperty Name="idIdioma" ColumnName="idIdioma" />
+                <ScalarProperty Name="nivelIdioma" ColumnName="nivelIdioma" />
+                <ScalarProperty Name="idLicenciaConducir" ColumnName="idLicenciaConducir" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="infoAdicional_perfilProfesional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.infoAdicional_perfilProfesional">
+              <MappingFragment StoreEntitySet="infoAdicional_perfilProfesional">
+                <ScalarProperty Name="idInfoAdicionalProfesional" ColumnName="idInfoAdicionalProfesional" />
+                <ScalarProperty Name="idInfoAdicional" ColumnName="idInfoAdicional" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoEstudios">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoEstudios">
+              <MappingFragment StoreEntitySet="InfoEstudios">
+                <ScalarProperty Name="idEstudios" ColumnName="idEstudios" />
+                <ScalarProperty Name="idGradoEstudio" ColumnName="idGradoEstudio" />
+                <ScalarProperty Name="idInstitucion" ColumnName="idInstitucion" />
+                <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="infoEstudios_perfilProfesional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.infoEstudios_perfilProfesional">
+              <MappingFragment StoreEntitySet="infoEstudios_perfilProfesional">
+                <ScalarProperty Name="idEstudiosProfesional" ColumnName="idEstudiosProfesional" />
+                <ScalarProperty Name="idEstudios" ColumnName="idEstudios" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoGenero">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoGenero">
+              <MappingFragment StoreEntitySet="InfoGenero">
+                <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+                <ScalarProperty Name="genero" ColumnName="genero" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoGradoEstudio">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoGradoEstudio">
+              <MappingFragment StoreEntitySet="InfoGradoEstudio">
+                <ScalarProperty Name="idGradoEstudio" ColumnName="idGradoEstudio" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoHabilidad">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoHabilidad">
+              <MappingFragment StoreEntitySet="InfoHabilidad">
+                <ScalarProperty Name="idHabilidad" ColumnName="idHabilidad" />
+                <ScalarProperty Name="habilidad" ColumnName="habilidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoIdioma">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoIdioma">
+              <MappingFragment StoreEntitySet="InfoIdioma">
+                <ScalarProperty Name="idIdioma" ColumnName="idIdioma" />
+                <ScalarProperty Name="idioma" ColumnName="idioma" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoInstitucion">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoInstitucion">
+              <MappingFragment StoreEntitySet="InfoInstitucion">
+                <ScalarProperty Name="idInstitucion" ColumnName="idInstitucion" />
+                <ScalarProperty Name="nombreInstitucion" ColumnName="nombreInstitucion" />
+                <ScalarProperty Name="ano" ColumnName="ano" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoLaboral">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoLaboral">
+              <MappingFragment StoreEntitySet="InfoLaboral">
+                <ScalarProperty Name="idInfoLaboral" ColumnName="idInfoLaboral" />
+                <ScalarProperty Name="profesion" ColumnName="profesion" />
+                <ScalarProperty Name="tiempoExperiencia" ColumnName="tiempoExperiencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="infoLaboral_perfilProfesional">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.infoLaboral_perfilProfesional">
+              <MappingFragment StoreEntitySet="infoLaboral_perfilProfesional">
+                <ScalarProperty Name="idInfoLaboralProfesional" ColumnName="idInfoLaboralProfesional" />
+                <ScalarProperty Name="idInfoLaboral" ColumnName="idInfoLaboral" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoLicenciaConducir">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoLicenciaConducir">
+              <MappingFragment StoreEntitySet="InfoLicenciaConducir">
+                <ScalarProperty Name="idLicenciaConducir" ColumnName="idLicenciaConducir" />
+                <ScalarProperty Name="licencia" ColumnName="licencia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoNacionalidad">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoNacionalidad">
+              <MappingFragment StoreEntitySet="InfoNacionalidad">
+                <ScalarProperty Name="idNacionalidad" ColumnName="idNacionalidad" />
+                <ScalarProperty Name="nacionalidad" ColumnName="nacionalidad" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoPuesto">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoPuesto">
+              <MappingFragment StoreEntitySet="InfoPuesto">
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="puesto" ColumnName="puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="InfoRequisitos">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.InfoRequisitos">
+              <MappingFragment StoreEntitySet="InfoRequisitos">
+                <ScalarProperty Name="idInfoRequisitos" ColumnName="idInfoRequisitos" />
+                <ScalarProperty Name="idIdioma" ColumnName="idIdioma" />
+                <ScalarProperty Name="idGradoEstudio" ColumnName="idGradoEstudio" />
+                <ScalarProperty Name="idHabilidad" ColumnName="idHabilidad" />
+                <ScalarProperty Name="idCarrera" ColumnName="idCarrera" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilDelConcurso">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.PerfilDelConcurso">
+              <MappingFragment StoreEntitySet="PerfilDelConcurso">
+                <ScalarProperty Name="idConcurso" ColumnName="idConcurso" />
+                <ScalarProperty Name="idPuesto" ColumnName="idPuesto" />
+                <ScalarProperty Name="idInfoRequisitos" ColumnName="idInfoRequisitos" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="codConcurso" ColumnName="codConcurso" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaCierre" ColumnName="fechaCierre" />
+                <ScalarProperty Name="descripcionConcurso" ColumnName="descripcionConcurso" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="fechaModifica" ColumnName="fechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PerfilPersona">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.PerfilPersona">
+              <MappingFragment StoreEntitySet="PerfilPersona">
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="fechaNacimiento" ColumnName="fechaNacimiento" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="direccion" ColumnName="direccion" />
+                <ScalarProperty Name="idNacionalidad" ColumnName="idNacionalidad" />
+                <ScalarProperty Name="idGenero" ColumnName="idGenero" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="FechaModifica" ColumnName="FechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="perfilProfesional_PerfilConcurso">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.perfilProfesional_PerfilConcurso">
+              <MappingFragment StoreEntitySet="perfilProfesional_PerfilConcurso">
+                <ScalarProperty Name="idMatch" ColumnName="idMatch" />
+                <ScalarProperty Name="idConcurso" ColumnName="idConcurso" />
+                <ScalarProperty Name="idPerfilProfesional" ColumnName="idPerfilProfesional" />
+                <ScalarProperty Name="porcentajeMatch" ColumnName="porcentajeMatch" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="fechaModifica" ColumnName="fechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="nombreRol" ColumnName="nombreRol" />
+                <ScalarProperty Name="idEstado" ColumnName="idEstado" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="fechaModifica" ColumnName="fechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol_Usuario">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Rol_Usuario">
+              <MappingFragment StoreEntitySet="Rol_Usuario">
+                <ScalarProperty Name="idRolUsuario" ColumnName="idRolUsuario" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="usuarioCrea" ColumnName="usuarioCrea" />
+                <ScalarProperty Name="fechaCreacion" ColumnName="fechaCreacion" />
+                <ScalarProperty Name="usuarioModifica" ColumnName="usuarioModifica" />
+                <ScalarProperty Name="fechaModifica" ColumnName="fechaModifica" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuario">
+            <EntityTypeMapping TypeName="BD_SIRESEPModel.Usuario">
+              <MappingFragment StoreEntitySet="Usuario">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="correoElectronico" ColumnName="correoElectronico" />
+                <ScalarProperty Name="cedula" ColumnName="cedula" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="fechaRegistro" ColumnName="fechaRegistro" />
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

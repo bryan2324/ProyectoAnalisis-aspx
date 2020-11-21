@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E2B9FCF3-79DC-4709-B1E9-DE3BB6F9BE84}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIRESEP.DAL</RootNamespace>
+    <AssemblyName>SIRESEP.DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="aplicaciones.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Carrera.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Certificaciones.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="certificaciones_perfilProfesional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Clases\ManAplicaciones.cs" />
+    <Compile Include="Clases\ManCarrera.cs" />
+    <Compile Include="Clases\ManCertificaciones.cs" />
+    <Compile Include="Clases\Mancertificaciones_perfilProfesional.cs" />
+    <Compile Include="Clases\Manhabilidades_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoAdicional.cs" />
+    <Compile Include="Clases\ManinfoAdicional_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoEstudios.cs" />
+    <Compile Include="Clases\ManinfoEstudios_perfilProfesional.cs.cs" />
+    <Compile Include="Clases\ManInfoGenero.cs" />
+    <Compile Include="Clases\ManInfoGradoEstudio.cs" />
+    <Compile Include="Clases\ManInfoHabilidad.cs" />
+    <Compile Include="Clases\ManInfoIdioma.cs" />
+    <Compile Include="Clases\ManInfoInstitucion.cs" />
+    <Compile Include="Clases\ManInfoLaboral.cs" />
+    <Compile Include="Clases\ManinfoLaboral_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoLicenciaConducir.cs" />
+    <Compile Include="Clases\ManInfoNacionalidad.cs" />
+    <Compile Include="Clases\ManInfoPuesto.cs" />
+    <Compile Include="Clases\ManInfoRequisitos.cs" />
+    <Compile Include="Clases\ManPerfilDelConcurso.cs" />
+    <Compile Include="Clases\ManPerfilPersona.cs" />
+    <Compile Include="Clases\ManPerfilProfesional_PerfilConcurso.cs" />
+    <Compile Include="Clases\ManUsuario.cs" />
+    <Compile Include="Estado.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="habilidades_perfilProfesional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoAdicional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infoAdicional_perfilProfesional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoEstudios.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infoEstudios_perfilProfesional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoGenero.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoGradoEstudio.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoHabilidad.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoIdioma.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoInstitucion.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoLaboral.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="infoLaboral_perfilProfesional.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoLicenciaConducir.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoNacionalidad.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoPuesto.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="InfoRequisitos.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Interfaces\IManAplicaciones.cs" />
+    <Compile Include="Interfaces\IManCarrera.cs" />
+    <Compile Include="Interfaces\IManCertificaciones.cs" />
+    <Compile Include="Interfaces\IMancertificaciones_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManhabilidades_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoAdicional.cs" />
+    <Compile Include="Interfaces\IManinfoAdicional_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoEstudios.cs" />
+    <Compile Include="Interfaces\IManinfoEstudios_perfilProfesional.cs.cs" />
+    <Compile Include="Interfaces\IManInfoGenero.cs" />
+    <Compile Include="Interfaces\IManInfoHabilidad.cs" />
+    <Compile Include="Interfaces\IManInfoIdioma.cs" />
+    <Compile Include="Interfaces\IManInfoInstitucion.cs" />
+    <Compile Include="Interfaces\IManInfoLaboral.cs" />
+    <Compile Include="Interfaces\IManinfoLaboral_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoLicenciaConducir.cs" />
+    <Compile Include="Interfaces\IManInfoNacionalidad.cs" />
+    <Compile Include="Interfaces\IManInfoPuesto.cs" />
+    <Compile Include="Interfaces\IManInfoRequisitos.cs" />
+    <Compile Include="Interfaces\IManPerfilPersona.cs" />
+    <Compile Include="Interfaces\IManPerfilProfesional_PerfilConcurso.cs" />
+    <Compile Include="Interfaces\IManUsuario.cs" />
+    <Compile Include="Interfaces\IManInfoGradoEstudio.cs" />
+    <Compile Include="Interfaces\IManPerfilDelConcurso.cs" />
+    <Compile Include="Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilDelConcurso.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilPersona.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="perfilProfesional_PerfilConcurso.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Rol.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Rol_Usuario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Usuario.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIRESEP.DO\SIRESEP.DO.csproj">
+      <Project>{b582fad7-6798-4678-8237-d8493e3a2b4b}</Project>
+      <Name>SIRESEP.DO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="App.Config" />
+    <None Include="Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

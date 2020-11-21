@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32A06A66-41A6-453E-930F-70FAE8FCC436}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SIRESEP.BS</RootNamespace>
+    <AssemblyName>SIRESEP.BS</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\ManAplicaciones.cs" />
+    <Compile Include="Clases\ManCarrera.cs" />
+    <Compile Include="Clases\ManCertificaciones.cs" />
+    <Compile Include="Clases\Mancertificaciones_perfilProfesional  .cs" />
+    <Compile Include="Clases\Manhabilidades_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoAdicional.cs" />
+    <Compile Include="Clases\ManinfoAdicional_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoEstudios.cs" />
+    <Compile Include="Clases\ManinfoEstudios_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoGenero.cs" />
+    <Compile Include="Clases\ManInfoGradoEstudio.cs" />
+    <Compile Include="Clases\ManInfoHabilidad.cs" />
+    <Compile Include="Clases\ManInfoIdioma.cs" />
+    <Compile Include="Clases\ManInfoInstitucion.cs" />
+    <Compile Include="Clases\ManInfoLaboral.cs" />
+    <Compile Include="Clases\ManinfoLaboral_perfilProfesional.cs" />
+    <Compile Include="Clases\ManInfoLicenciaConducir.cs" />
+    <Compile Include="Clases\ManInfoNacionalidad.cs" />
+    <Compile Include="Clases\ManInfoPuesto.cs" />
+    <Compile Include="Clases\ManInfoRequisitos.cs" />
+    <Compile Include="Clases\ManPerfilDelConcurso.cs" />
+    <Compile Include="Clases\ManPerfilPersona.cs" />
+    <Compile Include="Clases\ManPerfilProfesional_PerfilConcurso.cs" />
+    <Compile Include="Clases\ManUsuario.cs" />
+    <Compile Include="Interfaces\IManAplicaciones.cs" />
+    <Compile Include="Interfaces\IManCarrera.cs" />
+    <Compile Include="Interfaces\IManCertificaciones.cs" />
+    <Compile Include="Interfaces\IMancertificaciones_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManhabilidades_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoAdicional.cs" />
+    <Compile Include="Interfaces\IManinfoAdicional_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoEstudios.cs" />
+    <Compile Include="Interfaces\IManinfoEstudios_perfilProfesional.cs.cs" />
+    <Compile Include="Interfaces\IManinfoGenero.cs" />
+    <Compile Include="Interfaces\IManInfoGradoEstudio.cs" />
+    <Compile Include="Interfaces\IManInfoHabilidad.cs" />
+    <Compile Include="Interfaces\IManInfoIdioma.cs" />
+    <Compile Include="Interfaces\IManInfoInstitucion.cs" />
+    <Compile Include="Interfaces\IManInfoLaboral.cs" />
+    <Compile Include="Interfaces\IManinfoLaboral_perfilProfesional.cs" />
+    <Compile Include="Interfaces\IManInfoLicenciaConducir.cs" />
+    <Compile Include="Interfaces\IManInfoNacionalidad.cs" />
+    <Compile Include="Interfaces\IManInfoPuesto.cs" />
+    <Compile Include="Interfaces\IManInfoRequisitos.cs" />
+    <Compile Include="Interfaces\IManPerfilDelConcurso.cs" />
+    <Compile Include="Interfaces\IManPerfilPersona.cs" />
+    <Compile Include="Interfaces\IManPerfilProfesional_PerfilConcurso.cs" />
+    <Compile Include="Interfaces\IManUsuario.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SIRESEP.DAL\SIRESEP.DAL.csproj">
+      <Project>{e2b9fcf3-79dc-4709-b1e9-de3bb6f9be84}</Project>
+      <Name>SIRESEP.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SIRESEP.DO\SIRESEP.DO.csproj">
+      <Project>{b582fad7-6798-4678-8237-d8493e3a2b4b}</Project>
+      <Name>SIRESEP.DO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

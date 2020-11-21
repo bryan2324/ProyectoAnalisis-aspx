@@ -1,0 +1,13 @@
+﻿.ModalPopupFondo {
+    background-color: gray;
+    filter: alpha(opacity=60);
+    opacity: 0.6;
+}
+
+.modalPopup {
+    background-color: white;
+    border-width: 7px;
+    border-style: solid;
+    border-color: gray;
+    padding: 7px;
+}
